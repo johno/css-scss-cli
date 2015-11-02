@@ -5,15 +5,62 @@ Convert PostCSS style CSS to SCSS.
 ## Installation
 
 ```bash
-npm install --save css-scss-cli
+npm i -g css-scss-cli
 ```
 
 ## Usage
 
-```javascript
-var cssScssCli = require('css-scss-cli')
+```sh
+css-scss --help
 
-cssScssCli()  // => true
+  Convert PostCSS style CSS to SCSS.
+
+  Usage
+    $ css-scss <input.css> <output.scss>
+
+  Example
+    $ css-scss --help
+    $ css-scss input.css output.scss
+    $ css-scss input.css > output.scss
+    $ css-scss < input.css > output.scss
+```
+
+#### Input
+
+```css
+:root {
+  --red: #f00;
+}
+
+.warning {
+  color: var(--red):
+}
+
+@media (--breakpoint-small) {
+  .sm-col-6 { width: 50% }
+}
+
+@custom-media --breakpoint-small (min-width: 40em);
+
+.col-4 { calc( 4 / 12 * 100% ) }
+```
+
+#### Output
+
+```scss
+$red: #f00 !default;
+
+.warning {
+  color: $red;
+}
+
+$breakpoint-small: '(min-width: 40em)' !default;
+
+@media #{$breakpoint-small} {
+  .sm-col-6 { width: 50% }
+}
+
+.col-4 { ( 4 / 12 * 100% ) }
 ```
 
 ## License

@@ -1,17 +1,30 @@
 {
   "name": "css-scss-cli",
   "description": "Convert PostCSS style CSS to SCSS.",
-  "author": "John Otander",
   "version": "0.1.0",
-  "main": "index.js",
+  "author": {
+    "name": "John Otander",
+    "email": "johnotander@gmail.com",
+    "url": "johnotander.com"
+  },
+  "main": "cli.js",
   "files": [
-    "index.js"
+    "cli.js"
   ],
+  "bin": {
+    "css-scss": "cli.js"
+  },
   "scripts": {
     "test": "ava"
   },
   "repository": "johnotander/css-scss-cli",
-  "keywords": [],
+  "keywords": [
+    "css",
+    "cli",
+    "cli-app",
+    "scss",
+    "postcss"
+  ],
   "license": "MIT",
   "dependencies": {
     "css-scss": "^0.1.0",
